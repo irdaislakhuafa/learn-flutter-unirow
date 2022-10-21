@@ -11,14 +11,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: Config.title,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(Config.title),
-          centerTitle: true,
-        ),
-        body: Container(
-          child: Text("This is text"),
-        ),
-      ),
+          appBar: AppBar(
+            title: Text(Config.title),
+            centerTitle: true,
+          ),
+          body: Center(
+            child: Container(
+              color: Colors.blueAccent,
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.all(20),
+              transform: Matrix4.rotationZ(0.2),
+              height: 200,
+              width: 200,
+              child: Text(
+                "This is text",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          )),
     );
   }
 }
