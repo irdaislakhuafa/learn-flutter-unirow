@@ -84,6 +84,7 @@ class _LearnStateForm extends State<LearnForm> {
     return MaterialApp(
       title: Conf.title,
       home: Scaffold(
+        appBar: Conf.appBar,
         body: Stack(
           children: [
             Form(
