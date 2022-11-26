@@ -98,6 +98,7 @@ class _LearnStateForm extends State<LearnForm> {
                   inputField(
                     labelText: "Email",
                     hintText: "Ex. irda@gmail.com",
+                    iconData: Icons.email,
                     marginContainer:
                         const EdgeInsets.only(left: 20, right: 20, top: 20),
                     validator: (value) {
