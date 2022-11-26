@@ -90,6 +90,18 @@ class _LearnStateForm extends State<LearnForm> {
               key: _formKey,
               child: ListView(
                 children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 30, bottom: 20),
+                    child: const Text(
+                      "Form Example Flutter",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   inputField(
                     labelText: "Name",
                     hintText: "Ex. Irda Islakhu Afa",
