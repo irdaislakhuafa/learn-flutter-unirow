@@ -26,6 +26,7 @@ class _LearnStateForm extends State<LearnForm> {
     IconData? iconData,
     TextInputType? inputType,
     String? errorValidationText,
+    String? Function(String?)? validator,
   }) {
     return Container(
       margin: marginContainer ??
@@ -34,8 +35,6 @@ class _LearnStateForm extends State<LearnForm> {
             left: 20,
             right: 20,
           ),
-      // child: Card(
-      //   elevation: 10,
       child: TextFormField(
         autofocus: true,
         keyboardType: inputType ?? TextInputType.text,
@@ -68,15 +67,15 @@ class _LearnStateForm extends State<LearnForm> {
           ),
           contentPadding: const EdgeInsets.only(left: 10),
         ),
-        validator: (value) {
-          if (value == null || value.isEmpty || value.trim() == "") {
-            return errorValidationText ?? "Cannot null or empty";
-          }
-          return null;
-        },
+        validator: validator ??
+            (value) {
+              if (value == null || value.isEmpty || value.trim() == "") {
+                return errorValidationText ?? "Cannot null or empty";
+              }
+              return null;
+            },
         enableSuggestions: true,
       ),
-      // ),
     );
   }
 
@@ -91,7 +90,6 @@ class _LearnStateForm extends State<LearnForm> {
               key: _formKey,
               child: ListView(
                 children: [
-                  // name
                   inputField(
                     labelText: "Name",
                     hintText: "Ex. Irda Islakhu Afa",
@@ -102,6 +100,20 @@ class _LearnStateForm extends State<LearnForm> {
                     hintText: "Ex. irda@gmail.com",
                     marginContainer:
                         const EdgeInsets.only(left: 20, right: 20, top: 20),
+                    validator: (value) {
+                      value = value ?? "";
+                      if (value.trim() == "") {
+                        return "Email cannot be empty";
+                      }
+
+                      RegExp emailPattern = RegExp(
+                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+                      );
+
+                      return (emailPattern.hasMatch(value))
+                          ? null
+                          : "Invalid email format!";
+                    },
                   ),
                   inputField(
                     marginContainer:
