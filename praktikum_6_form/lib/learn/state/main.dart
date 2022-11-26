@@ -16,7 +16,7 @@ class LearnForm extends StatefulWidget {
 }
 
 class _LearnStateForm extends State<LearnForm> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget inputField({
     String? labelText,
@@ -45,7 +45,7 @@ class _LearnStateForm extends State<LearnForm> {
           border: const OutlineInputBorder(),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.white,
+              color: Colors.blue,
             ),
           ),
           hintText: hintText ?? "Write here!",
@@ -125,7 +125,7 @@ class _LearnStateForm extends State<LearnForm> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.only(top: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
