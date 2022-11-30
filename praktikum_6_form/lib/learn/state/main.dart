@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +17,7 @@ class LearnForm extends StatefulWidget {
 
 class _LearnStateForm extends State<LearnForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isMale = false;
 
   Widget inputField({
     String? labelText,
@@ -144,6 +145,20 @@ class _LearnStateForm extends State<LearnForm> {
                     hintText: "Ex. 0822xxxxxxx",
                     inputType: TextInputType.phone,
                     iconData: Icons.phone,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(20),
+                    child: CheckboxListTile(
+                      value: isMale,
+                      title: Text("I agree with this role"),
+                      subtitle: Text(
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magnam veniam alias, officiis illo perferendis distinctio impedit amet accusamus repudiandae dicta mollitia, quia dolor recusandae maxime facilis molestiae temporibus similique.",
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      onChanged: (value) {
+                        setState(() => isMale = value ?? !isMale);
+                      },
+                    ),
                   ),
                 ],
               ),
