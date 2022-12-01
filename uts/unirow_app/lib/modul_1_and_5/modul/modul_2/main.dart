@@ -138,3 +138,50 @@ class Modul2Percobaan3 extends StatelessWidget {
     );
   }
 }
+
+class Modul2Percobaan4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    const String text = "Learn Flutter and Dart :";
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Percobaan 4"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Stack(
+          children: [
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: Conf.defaultFontSize,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 6
+                  ..color = Colors.blue[700]!,
+              ),
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: Conf.defaultFontSize,
+                foreground: Paint()
+                  ..style = PaintingStyle.fill
+                  ..strokeWidth = 6
+                  ..color = Colors.blue[200]!,
+              ),
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: Conf.defaultFontSize,
+                color: Colors.grey[300],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
