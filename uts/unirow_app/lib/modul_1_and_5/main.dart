@@ -4,7 +4,7 @@ import 'package:unirow_app/modul_1_and_5/modul/modul_1/main.dart';
 import 'package:unirow_app/modul_1_and_5/modul/modul_2/main.dart';
 import 'package:unirow_app/modul_1_and_5/modul/modul_3/main.dart';
 import 'package:unirow_app/modul_1_and_5/modul/modul_4/main.dart';
-import 'package:unirow_app/modul_1_and_5/modul/modul_5/5.dart';
+import 'package:unirow_app/modul_1_and_5/modul/modul_5/main.dart';
 import 'package:unirow_app/unirow_app/main.dart';
 
 void main() => runApp(
@@ -38,6 +38,11 @@ void main() => runApp(
           "/modul/4/percobaan/5": (context) => Modul4Percobaan5(),
           "/modul/4/percobaan/6": (context) => Modul4Percobaan6(),
           "/modul/5": (context) => Modul5(),
+          "/modul/5/percobaan/1": (context) => Modul5Percobaan1(),
+          "/modul/5/percobaan/2": (context) => Modul5Percobaan2(),
+          "/modul/5/percobaan/3": (context) => Modul5Percobaan3(),
+          "/modul/5/percobaan/4": (context) => Modul5Percobaan4(),
+          "/modul/5/percobaan/5": (context) => Modul5Percobaan5(),
         },
       ),
     );
