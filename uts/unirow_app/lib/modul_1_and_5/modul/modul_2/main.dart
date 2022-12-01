@@ -7,22 +7,7 @@ import 'package:unirow_app/unirow_app/main.dart';
 class Modul2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<Widget> items = [
-      Container(
-        margin: EdgeInsets.only(top: 30, bottom: 20),
-        child: Center(
-          child: Text(
-            "Percobaan",
-            style: TextStyle(
-              color: Colors.blueAccent,
-              fontSize: 20,
-              fontFamily: DefaultFontFamily,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-    ];
+    List<Widget> items = [App.labelPercobaan()];
 
     for (int i = 1; i <= 6; i++) {
       items.add(
@@ -63,6 +48,7 @@ class Modul2Percobaan1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Percobaan 1"),
+        centerTitle: true,
       ),
       body: Center(
         child: Text(
@@ -280,7 +266,7 @@ class Modul2Task extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          Conf.title,
+          "Tugas",
           style: TextStyle(
             fontSize: Conf.defaultFontSize - 5,
             color: Colors.white,

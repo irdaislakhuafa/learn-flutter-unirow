@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unirow_app/modul_1_and_5/modul/modul_1/main.dart';
 import 'package:unirow_app/modul_1_and_5/modul/modul_2/main.dart';
-import 'package:unirow_app/modul_1_and_5/modul/3.dart';
-import 'package:unirow_app/modul_1_and_5/modul/4.dart';
-import 'package:unirow_app/modul_1_and_5/modul/5.dart';
+import 'package:unirow_app/modul_1_and_5/modul/modul_3/main.dart';
+import 'package:unirow_app/modul_1_and_5/modul/modul_4/main.dart';
+import 'package:unirow_app/modul_1_and_5/modul/modul_5/5.dart';
 import 'package:unirow_app/unirow_app/main.dart';
 
 void main() => runApp(
@@ -12,7 +12,6 @@ void main() => runApp(
         title: "Modul 1 - 5",
         home: new App(),
         routes: {
-          "/moduls": (context) => App(),
           "/modul/1": (context) => Modul1(),
           "/modul/2": (context) => Modul2(),
           "/modul/2/percobaan/1": (context) => Modul2Percobaan1(),
@@ -23,13 +22,38 @@ void main() => runApp(
           "/modul/2/percobaan/6": (context) => Modul2Percobaan6(),
           "/modul/2/task": (context) => Modul2Task(),
           "/modul/3": (context) => Modul3(),
+          "/modul/3/percobaan/1": (context) => Modul3Percobaan1(),
+          "/modul/3/percobaan/2": (context) => Modul3Percobaan2(),
+          "/modul/3/percobaan/3": (context) => Modul3Percobaan3(),
+          "/modul/3/percobaan/4": (context) => Modul3Percobaan4(),
+          "/modul/3/percobaan/5": (context) => Modul3Percobaan5(),
+          "/modul/3/percobaan/6": (context) => Modul3Percobaan6(),
+          "/modul/3/task": (context) => Modul3Task(),
           "/modul/4": (context) => Modul4(),
+          "/modul/4/appbar": (context) => Modul4AppBar(),
           "/modul/5": (context) => Modul5(),
         },
       ),
     );
 
 class App extends StatelessWidget {
+  static Widget labelPercobaan() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 20),
+      child: Center(
+        child: Text(
+          "Percobaan",
+          style: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 20,
+            fontFamily: DefaultFontFamily,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
