@@ -27,9 +27,8 @@ class Modul2 extends StatelessWidget {
     for (int i = 1; i <= 6; i++) {
       items.add(
         App.createButtonModul(
-          i.toString(),
-          action: () => Navigator.pushNamed(
-              context, "/modul/2/percobaan/" + i.toString()),
+          "${i}",
+          action: () => Navigator.pushNamed(context, "/modul/2/percobaan/${i}"),
           margin_1: EdgeInsets.all(0),
         ),
       );
@@ -181,6 +180,49 @@ class Modul2Percobaan4 extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Modul2Percobaan5 extends StatelessWidget {
+  Text createText(String text,
+      {String? fontFamily, double? fontSize, TextAlign? textAlign}) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontFamily: fontFamily ?? "Arial",
+        fontSize: fontSize ?? Conf.defaultFontSize,
+      ),
+      textAlign: textAlign ?? TextAlign.start,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    const String viewText =
+        "This is my first time to learn Flutter and Dart | ";
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          Conf.title,
+          style: TextStyle(
+            fontSize: Conf.defaultFontSize,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          createText("${viewText}CENTER",
+              fontFamily: 'DancingScript', textAlign: TextAlign.center),
+          createText("${viewText}LEFT", textAlign: TextAlign.left),
+          createText("${viewText}RIGHT", textAlign: TextAlign.right),
+          createText("${viewText}JUSTIFY", textAlign: TextAlign.justify),
+          createText("${viewText}START", textAlign: TextAlign.start),
+          createText("${viewText}END", textAlign: TextAlign.end),
+        ],
       ),
     );
   }
