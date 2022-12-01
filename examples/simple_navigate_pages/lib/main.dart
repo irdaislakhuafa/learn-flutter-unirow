@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simple_navigate_pages/login_page.dart';
 
+const String DefaultFontFamily = "UbuntuMono";
+
 void main() => runApp(
       new MaterialApp(
         title: "Unirow App",
