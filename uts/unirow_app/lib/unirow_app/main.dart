@@ -7,5 +7,8 @@ void main() => runApp(
       MaterialApp(
         title: "Unirow App",
         home: LoginPage(),
+        routes: {
+          "/login": (context) => LoginPage(),
+        },
       ),
     );

@@ -122,7 +122,7 @@ class LoginPage extends StatelessWidget {
       Container(
         margin: const EdgeInsets.symmetric(horizontal: 150),
         child: Container(
-          margin: EdgeInsets.only(top: 150),
+          margin: const EdgeInsets.only(top: 100),
           child: TextButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
@@ -141,7 +141,34 @@ class LoginPage extends StatelessWidget {
             onPressed: () {},
           ),
         ),
-      )
+      ),
+      Container(
+        margin: EdgeInsets.only(top: 15),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Belum punya akun?",
+              style: new TextStyle(
+                fontFamily: DefaultFontFamily,
+                fontSize: 20,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/register");
+              },
+              child: const Text(
+                "Daftar",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: DefaultFontFamily,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     ];
 
     return Scaffold(
