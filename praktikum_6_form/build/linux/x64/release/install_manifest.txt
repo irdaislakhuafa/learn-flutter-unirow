@@ -1,0 +1,11 @@
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/praktikum_6_form
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/icudtl.dat
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/lib/libflutter_linux_gtk.so
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/FontManifest.json
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/version.json
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/AssetManifest.json
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/data/flutter_assets/NOTICES.Z
+/files/Flutter/praktikum_6_form/build/linux/x64/release/bundle/lib/libapp.so
