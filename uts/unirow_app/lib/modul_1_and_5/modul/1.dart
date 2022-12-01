@@ -18,10 +18,25 @@ class Modul1 extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          App.createButtonModul(
-            "Back",
-            action: () => Navigator.pushNamed(context, "/moduls"),
-          )
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(
+                top: 30,
+              ),
+              child: const Text(
+                "Installasi Flutter",
+                style: TextStyle(
+                  fontFamily: DefaultFontFamily,
+                  fontSize: 20,
+                  color: Colors.blueAccent,
+                ),
+              ),
+            ),
+          ),
+          // App.createButtonModul(
+          //   "Back",
+          //   action: () => Navigator.pushNamed(context, "/moduls"),
+          // )
         ],
       ),
     );
