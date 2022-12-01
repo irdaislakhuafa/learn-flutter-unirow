@@ -31,6 +31,12 @@ void main() => runApp(
           "/modul/3/task": (context) => Modul3Task(),
           "/modul/4": (context) => Modul4(),
           "/modul/4/appbar": (context) => Modul4AppBar(),
+          "/modul/4/percobaan/1": (context) => Modul4Percobaan1(),
+          "/modul/4/percobaan/2": (context) => Modul4Percobaan2(),
+          "/modul/4/percobaan/3": (context) => Modul4Percobaan3(),
+          "/modul/4/percobaan/4": (context) => Modul4Percobaan4(),
+          "/modul/4/percobaan/5": (context) => Modul4Percobaan5(),
+          "/modul/4/percobaan/6": (context) => Modul4Percobaan6(),
           "/modul/5": (context) => Modul5(),
         },
       ),
@@ -68,7 +74,7 @@ class App extends StatelessWidget {
         children: [
           createButtonModul(
             "Modul 1",
-            action: () => Navigator.pushNamed(context, "/modul/1"),
+            action: () => Navigator.pushNamed(context, "/modul2"),
           ),
           createButtonModul(
             "Modul 2",
