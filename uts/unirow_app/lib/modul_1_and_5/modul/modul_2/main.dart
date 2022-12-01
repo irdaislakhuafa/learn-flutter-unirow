@@ -74,7 +74,7 @@ class Modul2Percobaan2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Conf.title),
+        title: const Text("Percobaan 2"),
         centerTitle: true,
       ),
       body: Center(
@@ -106,6 +106,33 @@ class Modul2Percobaan2 extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Modul2Percobaan3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Percoban 3",
+          style: TextStyle(
+            fontFamily: 'DancingScript',
+            fontSize: Conf.defaultFontSize,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(
+          "This is text with DancingScript-Regular font",
+          style: TextStyle(
+            fontFamily: 'DancingScript',
+            fontSize: Conf.defaultFontSize,
+          ),
         ),
       ),
     );
