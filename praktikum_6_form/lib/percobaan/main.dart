@@ -55,11 +55,11 @@ class _PercobaanForm extends State<PercobaanForm> {
 
                 // submit button
                 ElevatedButton(
-                  onPressed: () {
-                    print(_formKey.currentState);
-                    if (_formKey.currentState!.validate()) {}
-                  },
-                  child: const Text("Submit"),
+                  onPressed: () => _formKey.currentState!.validate(),
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 10, top: 7),
+                    child: const Text("Submit"),
+                  ),
                 )
               ],
             ),
