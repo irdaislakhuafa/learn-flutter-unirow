@@ -29,6 +29,7 @@ class _LearnTextFormField extends State<LearnTextFormField> {
         child: ListView(
           children: [
             TextFormField(
+              autofocus: true,
               decoration: const InputDecoration(
                 labelText: "Nama",
                 hintText: "Masukan nama anda disini",
