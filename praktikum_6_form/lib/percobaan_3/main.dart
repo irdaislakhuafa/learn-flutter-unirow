@@ -28,22 +28,36 @@ class _LearnTextFormFieldKeyboardType
         margin: EdgeInsets.only(left: 20, right: 20, top: 20),
         child: ListView(
           children: [
-            TextFormField(
+            createInput(
+              "Email",
+              hintText: "Masukan email anda disini",
               keyboardType: TextInputType.emailAddress,
-              autofocus: true,
-              decoration: const InputDecoration(
-                labelText: "Email",
-                hintText: "Masukan email anda disini",
-                icon: Icon(
-                  Icons.mail,
-                  color: Colors.blueAccent,
-                ),
-                border: OutlineInputBorder(),
-              ),
+              icon: Icons.email,
             ),
-            TextFormField(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget createInput(
+    String? label, {
+    String? hintText,
+    bool? autofocus,
+    IconData? icon,
+    TextInputType? keyboardType,
+  }) {
+    return TextFormField(
+      keyboardType: keyboardType ?? TextInputType.text,
+      autofocus: autofocus ?? true,
+      decoration: InputDecoration(
+        labelText: label ?? "Nama",
+        hintText: hintText ?? "Masukan nama anda disini",
+        icon: Icon(
+          icon ?? Icons.people,
+          color: Colors.blueAccent,
+        ),
+        border: OutlineInputBorder(),
       ),
     );
   }
