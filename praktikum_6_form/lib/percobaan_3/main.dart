@@ -34,6 +34,18 @@ class _LearnTextFormFieldKeyboardType
               keyboardType: TextInputType.emailAddress,
               icon: Icons.email,
             ),
+            createInput(
+              "Phone",
+              hintText: "Masukan nomor anda disini",
+              keyboardType: TextInputType.phone,
+              icon: Icons.phone,
+            ),
+            createInput(
+              "Repositoty",
+              hintText: "Masukan url repository anda disini",
+              keyboardType: TextInputType.url,
+              icon: Icons.archive,
+            ),
           ],
         ),
       ),
@@ -46,18 +58,22 @@ class _LearnTextFormFieldKeyboardType
     bool? autofocus,
     IconData? icon,
     TextInputType? keyboardType,
+    EdgeInsets? margin,
   }) {
-    return TextFormField(
-      keyboardType: keyboardType ?? TextInputType.text,
-      autofocus: autofocus ?? true,
-      decoration: InputDecoration(
-        labelText: label ?? "Nama",
-        hintText: hintText ?? "Masukan nama anda disini",
-        icon: Icon(
-          icon ?? Icons.people,
-          color: Colors.blueAccent,
+    return Container(
+      margin: margin ?? EdgeInsets.only(top: 15),
+      child: TextFormField(
+        keyboardType: keyboardType ?? TextInputType.text,
+        autofocus: autofocus ?? true,
+        decoration: InputDecoration(
+          labelText: label ?? "Nama",
+          hintText: hintText ?? "Masukan nama anda disini",
+          icon: Icon(
+            icon ?? Icons.people,
+            color: Colors.blueAccent,
+          ),
+          border: OutlineInputBorder(),
         ),
-        border: OutlineInputBorder(),
       ),
     );
   }
