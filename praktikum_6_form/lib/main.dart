@@ -16,6 +16,8 @@ class App extends StatefulWidget {
 class _App extends State<App> {
   final _formKey = GlobalKey<FormState>();
 
+  var isMale = true;
+
   @override
   Widget build(BuildContext context) {
     var title = Container(
@@ -33,20 +35,46 @@ class _App extends State<App> {
     );
 
     var npm = Container(
+      child: input(labelText: "  NPM"),
+    );
+
+    var name = Container(
+      child: input(
+        labelText: "  Name",
+        icon: Icons.perm_identity_outlined,
+      ),
+    );
+
+    var gender = Container(
       child: cardWithShadow(
-        margin: EdgeInsets.only(left: 20, right: 20, top: 1, bottom: 10),
-        child: TextFormField(
-          decoration: InputDecoration(
-            label: Text(
-              "NPM",
+        margin: EdgeInsets.all(0),
+        child: SwitchListTile(
+          title: const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Male",
               style: TextStyle(
                 color: Colors.blueAccent,
               ),
             ),
-            icon: Icon(Icons.numbers_outlined),
-            border: UnderlineInputBorder(),
+          ),
+          value: isMale,
+          onChanged: (value) => setState(() {
+            isMale = value;
+          }),
+          secondary: const Icon(
+            Icons.male_outlined,
+            color: Colors.blueAccent,
           ),
         ),
+      ),
+    );
+
+    var address = Container(
+      child: input(
+        maxLines: 3,
+        labelText: "Address",
+        icon: Icons.location_history,
       ),
     );
 
@@ -62,9 +90,38 @@ class _App extends State<App> {
                 title,
                 const Divider(),
                 npm,
+                name,
+                gender,
+                address,
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget input({
+    EdgeInsets? margin,
+    String? labelText,
+    TextStyle? style,
+    IconData? icon,
+    int? maxLines,
+  }) {
+    return cardWithShadow(
+      margin:
+          margin ?? EdgeInsets.only(left: 20, right: 20, top: 1, bottom: 10),
+      child: TextFormField(
+        maxLines: maxLines ?? 1,
+        decoration: InputDecoration(
+          label: Text(
+            labelText ?? "NPM",
+            style: TextStyle(
+              color: Colors.blueAccent,
+            ),
+          ),
+          icon: Icon(icon ?? Icons.numbers_outlined, color: Colors.blueAccent),
+          border: UnderlineInputBorder(),
         ),
       ),
     );
