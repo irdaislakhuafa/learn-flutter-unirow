@@ -14,7 +14,6 @@ class LearnGetData extends StatelessWidget {
   Future<dynamic> _getData(int length) async {
     var response =
         await http.get(Uri.parse("${Conf.API_BASE_URL}?per_page=$length"));
-    print(response.body);
     return json.decode(response.body);
   }
 
