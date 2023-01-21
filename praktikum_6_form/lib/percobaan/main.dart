@@ -1,9 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:praktikum_6_form/conf.dart';
 
 void main() => runApp(
       MaterialApp(
+        routes: {
+          "/users/list": (context) => _ListUsers(),
+          "/users/add": (context) => PercobaanForm(),
+        },
         title: Conf.title,
         home: PercobaanForm(),
       ),
@@ -96,10 +103,9 @@ class _PercobaanForm extends State<PercobaanForm> {
                   margin: EdgeInsets.only(top: 20),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(right: 10),
                       child: ElevatedButton(
                         onPressed: () => _formKey.currentState!.validate(),
                         child: Container(
@@ -108,11 +114,21 @@ class _PercobaanForm extends State<PercobaanForm> {
                         ),
                       ),
                     ),
+                    Container(
+                      child: ElevatedButton(
+                        onPressed: () => _formKey.currentState!.reset(),
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 10, top: 7),
+                          child: const Text("Reset"),
+                        ),
+                      ),
+                    ),
                     ElevatedButton(
-                      onPressed: () => _formKey.currentState!.reset(),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, "/users/list"),
                       child: Container(
                         margin: EdgeInsets.only(bottom: 10, top: 7),
-                        child: const Text("Reset"),
+                        child: const Text("List User"),
                       ),
                     ),
                   ],
@@ -152,6 +168,57 @@ class _PercobaanForm extends State<PercobaanForm> {
               }
               return null;
             },
+      ),
+    );
+  }
+}
+
+class _ListUsers extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _ListUserState();
+}
+
+class _ListUserState extends State<_ListUsers> {
+  Future<dynamic> _getData(int length) async {
+    var response =
+        await http.get(Uri.parse("${Conf.API_BASE_URL}?per_page=$length"));
+    return json.decode(response.body);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: Conf.appBar,
+      body: Container(
+        child: FutureBuilder<dynamic>(
+          future: _getData(15),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(color: Colors.blue),
+              );
+            }
+
+            return ListView.builder(
+              itemCount: (snapshot.data['data'] as List<dynamic>).length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage(
+                        snapshot.data['data'][index]['avatar'].toString()),
+                  ),
+                  title: Text(
+                    "${snapshot.data['data'][index]['first_name'].toString()} ${snapshot.data['data'][index]['last_name'].toString()}",
+                  ),
+                  subtitle: Text(
+                    snapshot.data['data'][index]['email'].toString(),
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
