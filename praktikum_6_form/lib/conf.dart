@@ -6,4 +6,5 @@ class Conf {
     title: Text(Conf.title),
     centerTitle: true,
   );
+  static final String API_BASE_URL = "https://reqres.in/api/users";
 }
