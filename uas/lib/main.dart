@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    routes: {
+      "/auth": (ctx) => Scaffold(),
+    },
+  ));
 }
+
+void _checkAuth() {}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
