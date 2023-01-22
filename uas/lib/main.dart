@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uas/views/login.dart';
+import 'package:color/color.dart' as ColorPkg;
 
 void main() {
+  Color primaryColor = ColorPkg.Color.hex("3D84ED") as Color;
   runApp(MaterialApp(
+    theme: ThemeData(
+      primaryColor: primaryColor,
+    ),
     routes: {
-      "/auth": (ctx) => Scaffold(),
+      "/auth/login": (ctx) => Login(),
     },
+    home: _checkAuth(),
   ));
 }
 
-void _checkAuth() {}
+Widget? _checkAuth() {
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  String? token = "";
+  _prefs.then((value) {
+    token = value.getString("token");
+  });
+
+  if (token != null) {
+    return Login();
+  }
+
+// TODO: add homepage
+  return null;
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
