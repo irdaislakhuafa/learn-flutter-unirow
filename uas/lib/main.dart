@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uas/etc/config.dart';
 import 'package:uas/views/login.dart';
 
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(
       primaryColor: const Color.fromARGB(255, 61, 132, 237),
+      fontFamily: Config.defaultFontFamily,
     ),
     home: _checkAuth(),
   ));

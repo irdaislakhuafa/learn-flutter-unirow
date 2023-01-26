@@ -59,6 +59,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+  fonts:
+    - family: UbuntuMono
+      fonts:
+        - asset: assets/fonts/UbuntuMono-Bold.ttf
+        - asset: assets/fonts/UbuntuMono-BoldItalic.ttf
+        - asset: assets/fonts/UbuntuMono-Italic.ttf
+        - asset: assets/fonts/UbuntuMono-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
