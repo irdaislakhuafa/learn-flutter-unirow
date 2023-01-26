@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uas/views/login.dart';
-import 'package:color/color.dart' as ColorPkg;
 
 void main() {
-  Color primaryColor = ColorPkg.Color.hex("3D84ED") as Color;
   runApp(MaterialApp(
     theme: ThemeData(
-      primaryColor: primaryColor,
+      primaryColor: const Color.fromARGB(255, 61, 132, 237),
     ),
-    routes: {
-      "/auth/login": (ctx) => Login(),
-    },
     home: _checkAuth(),
   ));
 }
@@ -24,12 +19,12 @@ Widget? _checkAuth() {
     token = value.getString("token");
   });
 
-  if (token != null) {
-    return Login();
+  if (token != null && !token!.isEmpty) {
+// TODO: add homepage
+    return Text("home page");
   }
 
-// TODO: add homepage
-  return null;
+  return Login();
 }
 
 class MyApp extends StatelessWidget {
