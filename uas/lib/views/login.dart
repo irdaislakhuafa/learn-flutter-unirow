@@ -76,6 +76,9 @@ class _LoginFormState extends State<Login> {
                                 decoration:
                                     Config.defaultInputTextDecoration(context),
                                 style: Config.defaultTextStyle(context),
+                                validator: (value) {
+                                  // TODO: add validation
+                                },
                               ),
                             ),
                           ),
@@ -111,6 +114,9 @@ class _LoginFormState extends State<Login> {
                                 decoration:
                                     Config.defaultInputTextDecoration(context),
                                 style: Config.defaultTextStyle(context),
+                                validator: (value) {
+                                  // TODO: add validation
+                                },
                               ),
                             ),
                           ),
@@ -122,7 +128,9 @@ class _LoginFormState extends State<Login> {
                         margin: EdgeInsets.only(top: 100),
                         alignment: Alignment.center,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // TODO: trigger validation
+                          },
                           child: Container(
                             width: 200,
                             alignment: Alignment.center,
