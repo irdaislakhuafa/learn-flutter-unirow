@@ -42,6 +42,7 @@ class Config {
         actions: [
           GestureDetector(
             child: Container(
+              margin: EdgeInsets.only(right: 20),
               child: Icon(Icons.settings),
             ),
           ),
