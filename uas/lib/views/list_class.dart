@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
 import 'package:uas/etc/text_format.dart';
+import 'package:uas/views/class_details.dart';
 
 class ListClass extends StatefulWidget {
   @override
@@ -64,38 +65,50 @@ class _ListClass extends State<ListClass> {
     var listClasses = List.generate(this._classes.length, (index) {
       return Container(
         margin: EdgeInsets.only(left: 20, right: 20),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 5,
-          color: Colors.white,
-          child: Container(
-            padding: EdgeInsets.all(10),
-            child: Wrap(
-              children: [
-                Container(
-                  child: CircleAvatar(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    child: Text(
-                      this
-                          ._classes[index]["name"]!
-                          .substring(0, 1)
-                          .toUpperCase(),
-                      style: Config.defaultTextStyle(context,
-                          color: Colors.white, weight: FontWeight.bold),
+        child: GestureDetector(
+          onTap: () {
+            var classDetails =
+                ClassDetails(classID: this._classes[index]["id"]!);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => classDetails,
+              ),
+            );
+          },
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            elevation: 5,
+            color: Colors.white,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Wrap(
+                children: [
+                  Container(
+                    child: CircleAvatar(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      child: Text(
+                        this
+                            ._classes[index]["name"]!
+                            .substring(0, 1)
+                            .toUpperCase(),
+                        style: Config.defaultTextStyle(context,
+                            color: Colors.white, weight: FontWeight.bold),
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, left: 15),
-                  child: Text(
-                    TextFormat.toSintenceCase(
-                        this._classes[index]["name"] ?? "tidak ada"),
-                    style: Config.defaultTextStyle(context),
-                  ),
-                )
-              ],
+                  Container(
+                    margin: EdgeInsets.only(top: 10, left: 15),
+                    child: Text(
+                      TextFormat.toSintenceCase(
+                          this._classes[index]["name"] ?? "tidak ada"),
+                      style: Config.defaultTextStyle(context),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
