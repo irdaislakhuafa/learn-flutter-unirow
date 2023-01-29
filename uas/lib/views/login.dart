@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
+import 'package:uas/etc/session.dart';
+import 'package:uas/views/list_class.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class Login extends StatefulWidget {
 
 class _LoginFormState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
+  String? _npm;
+  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +83,11 @@ class _LoginFormState extends State<Login> {
                                 validator: (value) {
                                   // TODO: add validation
                                 },
+                                onChanged: (value) {
+                                  setState(() {
+                                    this._npm = value;
+                                  });
+                                },
                               ),
                             ),
                           ),
@@ -117,6 +126,11 @@ class _LoginFormState extends State<Login> {
                                 validator: (value) {
                                   // TODO: add validation
                                 },
+                                onChanged: (value) {
+                                  setState(() {
+                                    this._password = value;
+                                  });
+                                },
                               ),
                             ),
                           ),
@@ -128,8 +142,22 @@ class _LoginFormState extends State<Login> {
                         margin: EdgeInsets.only(top: 100),
                         alignment: Alignment.center,
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Theme.of(context).primaryColor),
+                            elevation: MaterialStateProperty.all(8),
+                          ),
                           onPressed: () {
                             // TODO: trigger validation
+                            Session.setCurrentNPM(context, this._npm ?? "");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ListClass();
+                                },
+                              ),
+                            );
                           },
                           child: Container(
                             width: 200,

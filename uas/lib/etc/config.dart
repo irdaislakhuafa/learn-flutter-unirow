@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:uas/etc/session.dart';
 
 class Config {
   static final String defaultFontFamily = "UbuntuMono";
@@ -29,5 +30,21 @@ class Config {
           ),
           borderRadius: BorderRadius.circular(10),
         ),
+      );
+
+  static AppBar defaultAppBar(BuildContext context, {String? title}) => AppBar(
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          Session.getCurrentNPM(context),
+          style: Config.defaultTextStyle(context, color: Colors.white),
+        ),
+        actions: [
+          GestureDetector(
+            child: Container(
+              child: Icon(Icons.settings),
+            ),
+          ),
+        ],
       );
 }
