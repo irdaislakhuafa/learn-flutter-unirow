@@ -50,28 +50,71 @@ class _LoginFormState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // NIM/NPM
-                      Text("NIM/NPM", style: Config.defaultTextStyle(context)),
-                      TextFormField(
-                        autocorrect: true,
-                        autofocus: true,
-                        decoration: Config.defaultInputTextDecoration(context),
-                        style: Config.defaultTextStyle(context),
+                      Wrap(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: Center(
+                              child: Text(
+                                "NIM/NPM",
+                                style: Config.defaultTextStyle(context),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                  color: Theme.of(context).cardColor,
+                                ),
+                              ),
+                              elevation: Config.defaultElevation,
+                              child: TextFormField(
+                                autocorrect: true,
+                                autofocus: true,
+                                decoration:
+                                    Config.defaultInputTextDecoration(context),
+                                style: Config.defaultTextStyle(context),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+
                       // Kata Sandi
-                      Container(
-                        margin: EdgeInsets.only(top: 40),
-                        child: Text(
-                          "Kata Sandi",
-                          style: Config.defaultTextStyle(context),
-                        ),
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        obscuringCharacter: "*",
-                        autocorrect: true,
-                        autofocus: true,
-                        decoration: Config.defaultInputTextDecoration(context),
-                        style: Config.defaultTextStyle(context),
+                      Wrap(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10, top: 20),
+                            child: Center(
+                              child: Text(
+                                "Kata Sandi",
+                                style: Config.defaultTextStyle(context),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                  color: Theme.of(context).cardColor,
+                                ),
+                              ),
+                              elevation: Config.defaultElevation,
+                              child: TextFormField(
+                                obscureText: true,
+                                obscuringCharacter: "*",
+                                autocorrect: true,
+                                autofocus: true,
+                                decoration:
+                                    Config.defaultInputTextDecoration(context),
+                                style: Config.defaultTextStyle(context),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
 
                       // login button
@@ -98,29 +141,35 @@ class _LoginFormState extends State<Login> {
                       ),
 
                       // register
-                      Container(
-                        margin: EdgeInsets.only(top: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Belum punya akun? ",
-                              style: Config.defaultTextStyle(context,
-                                  color: Colors.black),
-                            ),
-                            GestureDetector(
-                              child: Text(
-                                "Daftar",
-                                style: Config.defaultTextStyle(context,
-                                    weight: FontWeight.bold),
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 20),
+                          child: Wrap(
+                            runSpacing: 10,
+                            children: [
+                              Center(
+                                child: Text(
+                                  "Belum punya akun? ",
+                                  style: Config.defaultTextStyle(context,
+                                      color: Colors.black),
+                                ),
                               ),
-                              onTap: () {
-                                // TODO: navigate
-                              },
-                            )
-                          ],
+                              Center(
+                                child: GestureDetector(
+                                  child: Text(
+                                    "Daftar",
+                                    style: Config.defaultTextStyle(context,
+                                        weight: FontWeight.bold),
+                                  ),
+                                  onTap: () {
+                                    // TODO: navigate
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

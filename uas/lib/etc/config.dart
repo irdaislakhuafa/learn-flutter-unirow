@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 class Config {
   static final String defaultFontFamily = "UbuntuMono";
   static final double defaultFontSize = 20;
+  static final double defaultElevation = 20;
 
   static TextStyle defaultTextStyle(BuildContext context,
           {Color? color, FontWeight? weight}) =>
@@ -16,10 +17,17 @@ class Config {
 
   static InputDecoration defaultInputTextDecoration(BuildContext context) =>
       InputDecoration(
-        enabledBorder: UnderlineInputBorder(
+        focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).cardColor,
           ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).cardColor,
+          ),
+          borderRadius: BorderRadius.circular(10),
         ),
       );
 }

@@ -7,6 +7,7 @@ void main() {
   runApp(MaterialApp(
     theme: ThemeData(
       primaryColor: const Color.fromARGB(255, 61, 132, 237),
+      cardColor: Colors.white,
       fontFamily: Config.defaultFontFamily,
     ),
     home: _checkAuth(),
