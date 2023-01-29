@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
 import 'package:uas/etc/session.dart';
 import 'package:uas/views/list_class.dart';
-import 'package:uas/views/register.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _LoginFormState();
+  State<StatefulWidget> createState() => _RegisterFormState();
 }
 
-class _LoginFormState extends State<Login> {
+class _RegisterFormState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   String? _npm;
   String? _password;
@@ -54,6 +53,47 @@ class _LoginFormState extends State<Login> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // name
+                      Wrap(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 10, top: 20),
+                            child: Center(
+                              child: Text(
+                                "Nama",
+                                style: Config.defaultTextStyle(context),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                  color: Theme.of(context).cardColor,
+                                ),
+                              ),
+                              elevation: Config.defaultElevation,
+                              child: TextFormField(
+                                autocorrect: true,
+                                autofocus: true,
+                                decoration:
+                                    Config.defaultInputTextDecoration(context),
+                                style: Config.defaultTextStyle(context),
+                                validator: (value) {
+                                  // TODO: add validation
+                                },
+                                onChanged: (value) {
+                                  setState(() {
+                                    this._npm = value;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
                       // NIM/NPM
                       Wrap(
                         children: [
@@ -137,87 +177,63 @@ class _LoginFormState extends State<Login> {
                           ),
                         ],
                       ),
-
-                      // login button
-                      Container(
-                        margin: EdgeInsets.only(top: 100),
-                        alignment: Alignment.center,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Theme.of(context).primaryColor),
-                            elevation: MaterialStateProperty.all(8),
-                          ),
-                          onPressed: () {
-                            // TODO: trigger validation
-                            Session.setCurrentNPM(context, this._npm ?? "");
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return ListClass();
-                                },
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: 200,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(
-                                left: 20, right: 20, top: 15, bottom: 15),
-                            child: Text(
-                              "Masuk",
-                              style: Config.defaultTextStyle(
-                                context,
-                                color: Colors.white,
-                                weight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      // register
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Wrap(
-                            runSpacing: 10,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Belum punya akun? ",
-                                  style: Config.defaultTextStyle(context,
-                                      color: Colors.black),
-                                ),
-                              ),
-                              Container(
-                                child: GestureDetector(
-                                  child: Text(
-                                    "Daftar",
-                                    style: Config.defaultTextStyle(context,
-                                        weight: FontWeight.bold),
-                                  ),
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return Register();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
               ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Register button
+                Container(
+                  margin: EdgeInsets.all(15),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                    ),
+                    onPressed: () {
+                      // TODO: navigate here
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "Daftar",
+                        style: Config.defaultTextStyle(
+                          context,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                // cancel button
+                Container(
+                  margin: EdgeInsets.all(15),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "Batal",
+                        style: Config.defaultTextStyle(
+                          context,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

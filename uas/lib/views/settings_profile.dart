@@ -134,7 +134,7 @@ class _SettingsProfileState extends State<SettingsProfile> {
                   child: Image.asset("assets/images/person.png"),
                 ),
                 Container(
-                  width: 140,
+                  width: 150,
                   margin: EdgeInsets.only(top: 2, left: 5),
                   child: TextFormField(
                     initialValue: user.password.toUpperCase(),
@@ -155,7 +155,7 @@ class _SettingsProfileState extends State<SettingsProfile> {
                 GestureDetector(
                   child: Container(
                     child: Container(
-                      margin: EdgeInsets.only(top: 12, left: 10),
+                      margin: EdgeInsets.only(top: 12, left: 10, right: 15),
                       child: Icon(
                         Icons.remove_red_eye,
                         color: Theme.of(context).primaryColor,
