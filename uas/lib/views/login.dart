@@ -155,14 +155,14 @@ class _LoginFormState extends State<Login> {
                           child: Wrap(
                             runSpacing: 10,
                             children: [
-                              Center(
+                              Container(
                                 child: Text(
                                   "Belum punya akun? ",
                                   style: Config.defaultTextStyle(context,
                                       color: Colors.black),
                                 ),
                               ),
-                              Center(
+                              Container(
                                 child: GestureDetector(
                                   child: Text(
                                     "Daftar",
