@@ -8,13 +8,16 @@ class ListClass extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     var state = _ListClass();
-
     return state;
+  }
+
+  static List<Map<String, String>> getListClasses() {
+    return _ListClass._classes;
   }
 }
 
 class _ListClass extends State<ListClass> {
-  List<Map<String, String>> _classes = [
+  static List<Map<String, String>> _classes = [
     {
       "id": "1",
       "name": "praktikum java",
@@ -36,6 +39,10 @@ class _ListClass extends State<ListClass> {
       "name": "sistem operasi",
     }
   ];
+
+  static List<Map<String, String>> getListClasses() {
+    return _classes;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +69,12 @@ class _ListClass extends State<ListClass> {
       ),
     ];
 
-    var listClasses = List.generate(this._classes.length, (index) {
+    var listClasses = List.generate(_classes.length, (index) {
       return Container(
         margin: EdgeInsets.only(left: 20, right: 20),
         child: GestureDetector(
           onTap: () {
-            var classDetails =
-                ClassDetails(classID: this._classes[index]["id"]!);
+            var classDetails = ClassDetails(classID: _classes[index]["id"]!);
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -90,10 +96,7 @@ class _ListClass extends State<ListClass> {
                     child: CircleAvatar(
                       backgroundColor: Theme.of(context).primaryColor,
                       child: Text(
-                        this
-                            ._classes[index]["name"]!
-                            .substring(0, 1)
-                            .toUpperCase(),
+                        _classes[index]["name"]!.substring(0, 1).toUpperCase(),
                         style: Config.defaultTextStyle(context,
                             color: Colors.white, weight: FontWeight.bold),
                       ),
@@ -103,7 +106,7 @@ class _ListClass extends State<ListClass> {
                     margin: EdgeInsets.only(top: 10, left: 15),
                     child: Text(
                       TextFormat.toSintenceCase(
-                          this._classes[index]["name"] ?? "tidak ada"),
+                          _classes[index]["name"] ?? "tidak ada"),
                       style: Config.defaultTextStyle(context),
                     ),
                   )
