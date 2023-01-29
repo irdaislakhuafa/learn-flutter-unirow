@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:uas/etc/session.dart';
+import 'package:uas/views/settings_profile.dart';
 
 class Config {
   static final String defaultFontFamily = "UbuntuMono";
@@ -8,10 +9,10 @@ class Config {
   static final double defaultElevation = 20;
 
   static TextStyle defaultTextStyle(BuildContext context,
-          {Color? color, FontWeight? weight}) =>
+          {Color? color, FontWeight? weight, double? size}) =>
       TextStyle(
         color: color ?? Theme.of(context).primaryColor,
-        fontSize: Config.defaultFontSize,
+        fontSize: size ?? Config.defaultFontSize,
         fontFamily: Config.defaultFontFamily,
         fontWeight: weight ?? FontWeight.normal,
       );
@@ -45,6 +46,14 @@ class Config {
               margin: EdgeInsets.only(right: 20),
               child: Icon(Icons.settings),
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingsProfile(),
+                ),
+              );
+            },
           ),
         ],
       );
