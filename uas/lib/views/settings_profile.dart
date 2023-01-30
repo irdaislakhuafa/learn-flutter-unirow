@@ -45,7 +45,7 @@ class _SettingsProfileState extends State<SettingsProfile> {
       DefaultTextFormField(
         initialValue: user.name,
         icon: Image.asset("assets/images/person.png"),
-        iconHeight: 30.0,
+        iconHeight: 35.0,
       ),
 
       // npm
