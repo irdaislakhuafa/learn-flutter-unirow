@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
 import 'package:uas/etc/default_text_form_field.dart';
 import 'package:uas/etc/session.dart';
 import 'package:uas/views/list_class.dart';
+import 'package:uas/views/register/register_status.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -197,6 +200,22 @@ class _RegisterFormState extends State<Register> {
                     ),
                     onPressed: () {
                       // TODO: navigate here
+                      var randomStatus = Random().nextBool();
+
+                      var status = randomStatus
+                          ? RegisterStatusOptions.SUCCESS
+                          : RegisterStatusOptions.FAILED;
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RegisterStatus(
+                              status: status,
+                            );
+                          },
+                        ),
+                      );
                     },
                     child: Container(
                       padding: EdgeInsets.all(10),
