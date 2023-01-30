@@ -42,47 +42,17 @@ class _SettingsProfileState extends State<SettingsProfile> {
       ),
 
       // user name
-      Container(
-        margin: EdgeInsets.only(left: 30, right: 30),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          elevation: 10,
-          child: Container(
-            child: Wrap(
-              children: [
-                Container(
-                  height: 40,
-                  margin: EdgeInsets.only(top: 10, left: 5),
-                  child: Image.asset("assets/images/person.png"),
-                ),
-                Container(
-                  width: 140,
-                  margin: EdgeInsets.only(top: 2, left: 5),
-                  child: TextFormField(
-                    initialValue: user.name.toUpperCase(),
-                    style: Config.defaultTextStyle(context),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: user.name.toUpperCase(),
-                      hintStyle: Config.defaultTextStyle(context),
-                    ),
-                    onChanged: (value) {
-                      // TODO: add validation here
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+      DefaultTextFormField(
+        initialValue: user.name,
+        icon: Image.asset("assets/images/person.png"),
+        iconHeight: 30.0,
       ),
 
       // npm
       DefaultTextFormField(
         initialValue: user.npm,
         icon: Image.asset("assets/images/card.png"),
+        iconHeight: 30.0,
       ),
 
       // password
@@ -177,7 +147,7 @@ class DefaultTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> inputChild = [
       Container(
-        width: 150,
+        width: MediaQuery.of(context).size.width - 120,
         margin: this.firstMargin ?? EdgeInsets.only(top: 2, left: 5),
         child: TextFormField(
           initialValue: this.initialValue,

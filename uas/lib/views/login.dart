@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
 import 'package:uas/etc/session.dart';
+import 'package:uas/etc/user.dart';
 import 'package:uas/views/list_class.dart';
 import 'package:uas/views/register.dart';
 
@@ -150,7 +151,14 @@ class _LoginFormState extends State<Login> {
                           ),
                           onPressed: () {
                             // TODO: trigger validation
-                            Session.setCurrentNPM(context, this._npm ?? "");
+                            var user = User(
+                              name: "irda islakhu afa",
+                              npm: this._npm ?? "1412190011",
+                              password: this._password ?? "irdaislakhuafa",
+                            );
+
+                            Session.setCurrentUser(context, user);
+
                             Navigator.push(
                               context,
                               MaterialPageRoute(
