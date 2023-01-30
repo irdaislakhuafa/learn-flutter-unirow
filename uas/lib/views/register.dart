@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uas/etc/config.dart';
+import 'package:uas/etc/default_text_form_field.dart';
 import 'package:uas/etc/session.dart';
 import 'package:uas/views/list_class.dart';
 
@@ -98,7 +99,7 @@ class _RegisterFormState extends State<Register> {
                       Wrap(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(bottom: 10),
+                            margin: EdgeInsets.only(bottom: 10, top: 20),
                             child: Center(
                               child: Text(
                                 "NIM/NPM",
