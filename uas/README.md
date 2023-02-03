@@ -5,7 +5,7 @@ Compiled application can be found di `app` directory
 
 # Description
 
-Currently this app have 6 simple page. Bellow is some of them and Figma design can be found ![here](https://www.figma.com/file/5yg6buJLjYGRfLwfnhXO6V/Unirow-App?node-id=2%3A2&t=LqzOyrBP6PzSEEW4-0)
+Currently this app have 6 simple page. Bellow is some of them and Figma design can be found ![here](https://www.figma.com/file/5yg6buJLjYGRfLwfnhXO6V/Unirow-App?node-id=2%3A2&t=LqzOyrBP6PzSEEW4-1)
 
 - Login
 ![login_page](./docs/images/empty_login_page.png)
