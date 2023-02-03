@@ -34,6 +34,7 @@ class Config {
       );
 
   static AppBar defaultAppBar(BuildContext context, {String? title}) => AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
